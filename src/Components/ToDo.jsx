@@ -20,19 +20,19 @@ function Todos (){
     const handleDelete = (index) =>{
         const updatedTodos = Todo.filter((_,i) => i !== index);
         setTodo(updatedTodos);
-
     }
+    
     return(
         <div>
             <h1> To Do App </h1>
             <h2> Organize Your ToDos With This App</h2>
-            <input type="text" value={input} onChange={handleInput}></input>
-            <button onClick={addToDo}> Add </button>
+            <input type="text" placeholder="Enter your todos" value={input} onChange={handleInput}></input>
+            <button className="Add" onClick={addToDo}> Add </button>
             <ul>
                 {Todo.map((todo,index) => (
                     <li key={index}>
                         {todo}
-                        <button onClick={() => handleDelete(index)}>Delete</button>
+                        <button className="delete" onClick={() => handleDelete(index)}>Delete</button>
                         </li>
                 ))}
             </ul>
