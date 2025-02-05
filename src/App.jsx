@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import Inputs from './Components/Inputs'
 import Todos from './Components/ToDo'
 
 function App() {

@@ -3,7 +3,8 @@ import { useState } from "react";
 
 function Todos (){
 
-    const [Todo, setTodo] = useState(['ToDo 1 ','ToDo 2']);
+    const [Todo, setTodo] = useState([]);
+    
     const [input, setInput] = useState('');
 
     const handleInput = (event)=>{
@@ -15,6 +16,12 @@ function Todos (){
             setTodo([...Todo,input])
             setInput('')
     }
+
+    const handleDelete = (index) =>{
+        const updatedTodos = Todo.filter((_,i) => i !== index);
+        setTodo(updatedTodos);
+
+    }
     return(
         <div>
             <h1> To Do App </h1>
@@ -23,7 +30,10 @@ function Todos (){
             <button onClick={addToDo}> Add </button>
             <ul>
                 {Todo.map((todo,index) => (
-                    <li key={index}>{todo}</li>
+                    <li key={index}>
+                        {todo}
+                        <button onClick={() => handleDelete(index)}>Delete</button>
+                        </li>
                 ))}
             </ul>
         </div>
